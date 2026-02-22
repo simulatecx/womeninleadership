@@ -1,47 +1,5 @@
-const agendaItems = [
-  {
-    time: "8:30 AM",
-    title: "Registration & Welcome Coffee",
-    desc: "Arrive, connect, and settle in. Name tags, light refreshments, and time to meet fellow CX professionals.",
-    tag: "Networking",
-    tagClass: "tag-networking",
-  },
-  {
-    time: "9:00 AM",
-    title: "Opening Keynote",
-    desc: "Setting the stage — what does leadership look like in the CX profession today, and where is it headed?",
-    tag: "Keynote",
-    tagClass: "tag-keynote",
-  },
-  {
-    time: "9:45 AM",
-    title: "Women in Leadership Panel",
-    desc: "A candid conversation with senior leaders on navigating the path forward — the real wins, the hard lessons, and what still needs to change.",
-    tag: "Panel Discussion",
-    tagClass: "tag-panel",
-  },
-  {
-    time: "11:00 AM",
-    title: "Networking Break",
-    desc: "Connect with peers, speakers, and fellow ACE community members.",
-    tag: "Networking",
-    tagClass: "tag-networking",
-  },
-  {
-    time: "11:30 AM",
-    title: "Giving Back — Charity Drive",
-    desc: "Learn about our three supported charities: Red Door Family Shelter, Room to Read, and Indspire. Your attendance makes a difference.",
-    tag: "Community",
-    tagClass: "tag-keynote",
-  },
-  {
-    time: "12:00 PM",
-    title: "Closing Remarks & Mingle",
-    desc: "Final words from the ACE board, followed by open networking until 1:00 PM.",
-    tag: "Networking",
-    tagClass: "tag-networking",
-  },
-];
+import React from "react";
+import { AGENDA_ITEMS } from "../lib/content";
 
 const tagStyles: Record<string, React.CSSProperties> = {
   "tag-panel": {
@@ -121,19 +79,20 @@ export function Agenda() {
               flexDirection: "column",
             }}
           >
-            {agendaItems.map((item, i) => (
+            {AGENDA_ITEMS.map((item, i) => (
               <div
-                key={i}
+                key={item.time}
                 style={{
                   display: "grid",
                   gridTemplateColumns: "120px 1fr",
                   gap: 24,
-                  padding: `0 0 ${i < agendaItems.length - 1 ? "36px" : "0"} 36px`,
+                  padding: `0 0 ${i < AGENDA_ITEMS.length - 1 ? "36px" : "0"} 36px`,
                   position: "relative",
                 }}
               >
                 {/* Dot */}
                 <div
+                  aria-hidden="true"
                   style={{
                     position: "absolute",
                     left: -7,

@@ -1,3 +1,61 @@
+import { EVENT } from "../lib/content";
+import { RegistrationCard } from "./RegistrationCard";
+
+const eventDetails = [
+  {
+    icon: (
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          stroke="#00A6A6"
+          strokeWidth="2"
+          strokeLinecap="round"
+          d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z"
+        />
+      </svg>
+    ),
+    label: EVENT.date,
+  },
+  {
+    icon: (
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          stroke="#00A6A6"
+          strokeWidth="2"
+          strokeLinecap="round"
+          d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"
+        />
+      </svg>
+    ),
+    label: EVENT.locationShort,
+  },
+  {
+    icon: (
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          stroke="#00A6A6"
+          strokeWidth="2"
+          strokeLinecap="round"
+          d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
+        />
+      </svg>
+    ),
+    label: `${EVENT.capacity} Attendees`,
+  },
+  {
+    icon: (
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          stroke="#00A6A6"
+          strokeWidth="2"
+          strokeLinecap="round"
+          d="M15 10l4.553-2.069A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.89L15 14M3 8h12a2 2 0 012 2v4a2 2 0 01-2 2H3a2 2 0 01-2-2v-4a2 2 0 012-2z"
+        />
+      </svg>
+    ),
+    label: EVENT.format,
+  },
+];
+
 export function Hero() {
   return (
     <section
@@ -15,6 +73,7 @@ export function Hero() {
     >
       {/* Ambient glow blobs */}
       <div
+        aria-hidden="true"
         style={{
           position: "absolute",
           width: 700,
@@ -28,6 +87,7 @@ export function Hero() {
         }}
       />
       <div
+        aria-hidden="true"
         style={{
           position: "absolute",
           width: 500,
@@ -73,6 +133,7 @@ export function Hero() {
           >
             <span
               className="pulse-dot"
+              aria-hidden="true"
               style={{
                 width: 6,
                 height: 6,
@@ -81,7 +142,7 @@ export function Hero() {
                 display: "inline-block",
               }}
             />
-            ACE Presents · Half-Day Event · April 10, 2025
+            {EVENT.badge}
           </div>
 
           <h1
@@ -112,8 +173,9 @@ export function Hero() {
               lineHeight: 1.4,
             }}
           >
-            Conversations that elevate the profession.
-            <br />A community that raises the standard.
+            {EVENT.tagline}
+            <br />
+            {EVENT.taglineSecond}
           </p>
 
           <div
@@ -125,62 +187,9 @@ export function Hero() {
               marginBottom: 36,
             }}
           >
-            {[
-              {
-                icon: (
-                  <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
-                    <path
-                      stroke="#00A6A6"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z"
-                    />
-                  </svg>
-                ),
-                label: "Thursday, April 10, 2025",
-              },
-              {
-                icon: (
-                  <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
-                    <path
-                      stroke="#00A6A6"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"
-                    />
-                  </svg>
-                ),
-                label: "Toronto, Ontario",
-              },
-              {
-                icon: (
-                  <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
-                    <path
-                      stroke="#00A6A6"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
-                    />
-                  </svg>
-                ),
-                label: "150 Attendees",
-              },
-              {
-                icon: (
-                  <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
-                    <path
-                      stroke="#00A6A6"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      d="M15 10l4.553-2.069A1 1 0 0121 8.82v6.36a1 1 0 01-1.447.89L15 14M3 8h12a2 2 0 012 2v4a2 2 0 01-2 2H3a2 2 0 01-2-2v-4a2 2 0 012-2z"
-                    />
-                  </svg>
-                ),
-                label: "In-Person & Virtual",
-              },
-            ].map((chip, i) => (
+            {eventDetails.map((chip) => (
               <div
-                key={i}
+                key={chip.label}
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -201,254 +210,20 @@ export function Hero() {
             style={{ display: "flex", gap: 12, flexWrap: "wrap", alignItems: "center" }}
           >
             <a
-              href="#"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                height: 50,
-                padding: "0 32px",
-                borderRadius: 10,
-                fontFamily: "'Manrope', sans-serif",
-                fontSize: 14,
-                fontWeight: 700,
-                letterSpacing: "0.05em",
-                textDecoration: "none",
-                background: "#FFB84D",
-                color: "#0A1A2F",
-                border: "none",
-                cursor: "pointer",
-                transition: "all 0.2s",
-              }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.background = "#f0a83a")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.background = "#FFB84D")
-              }
+              href="https://acepro.org"
+              className="btn btn-amber"
+              aria-label="Register for the Women in Leadership event"
             >
               Register for the Event
             </a>
-            <a
-              href="#about-ace"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                height: 50,
-                padding: "0 32px",
-                borderRadius: 10,
-                fontFamily: "'Manrope', sans-serif",
-                fontSize: 14,
-                fontWeight: 700,
-                letterSpacing: "0.05em",
-                textDecoration: "none",
-                background: "transparent",
-                color: "#fff",
-                border: "1.5px solid rgba(255,255,255,0.4)",
-                cursor: "pointer",
-                transition: "all 0.2s",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "#fff";
-                e.currentTarget.style.background = "rgba(255,255,255,0.06)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.4)";
-                e.currentTarget.style.background = "transparent";
-              }}
-            >
+            <a href="#about-ace" className="btn btn-outline-dark">
               Learn About ACE
             </a>
           </div>
         </div>
 
         {/* Registration card */}
-        <div
-          className="fade-up delay-5"
-          style={{
-            background: "rgba(255,255,255,0.05)",
-            border: "1px solid rgba(255,255,255,0.1)",
-            borderRadius: 20,
-            padding: "36px 32px",
-            backdropFilter: "blur(8px)",
-          }}
-        >
-          <div
-            style={{
-              fontFamily: "'Outfit', sans-serif",
-              fontWeight: 800,
-              fontSize: 20,
-              color: "#fff",
-              marginBottom: 6,
-            }}
-          >
-            Secure Your Spot
-          </div>
-          <div
-            style={{
-              fontSize: 13,
-              color: "rgba(255,255,255,0.5)",
-              marginBottom: 24,
-              lineHeight: 1.5,
-            }}
-          >
-            Space is limited to 150 attendees. Your ticket includes a charitable
-            donation on your behalf.
-          </div>
-
-          <div
-            style={{
-              background: "rgba(255,184,77,0.12)",
-              border: "1px solid rgba(255,184,77,0.25)",
-              borderRadius: 8,
-              padding: "12px 16px",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginBottom: 20,
-            }}
-          >
-            <span
-              style={{
-                fontSize: 12,
-                color: "rgba(255,255,255,0.5)",
-                fontWeight: 600,
-                letterSpacing: "0.05em",
-              }}
-            >
-              Spots Remaining
-            </span>
-            <span
-              style={{
-                fontFamily: "'Outfit', sans-serif",
-                fontWeight: 800,
-                fontSize: 22,
-                color: "#FFB84D",
-              }}
-            >
-              47
-            </span>
-          </div>
-
-          <div
-            style={{
-              fontSize: 11,
-              fontWeight: 700,
-              letterSpacing: "0.14em",
-              textTransform: "uppercase",
-              color: "#00A6A6",
-              marginBottom: 12,
-            }}
-          >
-            Your Ticket Gives Back To
-          </div>
-
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 8,
-              marginBottom: 24,
-            }}
-          >
-            {["Red Door Family Shelter", "Room to Read", "Indspire"].map(
-              (charity) => (
-                <div
-                  key={charity}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 10,
-                    fontSize: 13,
-                    color: "rgba(255,255,255,0.65)",
-                    fontWeight: 500,
-                  }}
-                >
-                  <span
-                    style={{
-                      width: 6,
-                      height: 6,
-                      borderRadius: "50%",
-                      background: "#00A6A6",
-                      flexShrink: 0,
-                      display: "inline-block",
-                    }}
-                  />
-                  {charity}
-                </div>
-              )
-            )}
-          </div>
-
-          <hr
-            style={{
-              border: "none",
-              borderTop: "1px solid rgba(255,255,255,0.08)",
-              margin: "0 0 20px",
-            }}
-          />
-
-          <a
-            href="#"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              width: "100%",
-              height: 48,
-              borderRadius: 10,
-              fontFamily: "'Manrope', sans-serif",
-              fontSize: 14,
-              fontWeight: 700,
-              letterSpacing: "0.05em",
-              textDecoration: "none",
-              background: "#00A6A6",
-              color: "#fff",
-              transition: "background 0.2s",
-            }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.background = "#009090")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.background = "#00A6A6")
-            }
-          >
-            Register Now →
-          </a>
-
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 8,
-              marginTop: 16,
-              fontSize: 11,
-              color: "rgba(255,255,255,0.3)",
-              fontWeight: 600,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              justifyContent: "center",
-            }}
-          >
-            Sponsored by{" "}
-            <span
-              style={{
-                background: "rgba(255,255,255,0.08)",
-                border: "1px solid rgba(255,255,255,0.12)",
-                borderRadius: 6,
-                padding: "4px 10px",
-                fontFamily: "'Outfit', sans-serif",
-                fontWeight: 800,
-                fontSize: 13,
-                color: "#FF9900",
-                letterSpacing: "0.5px",
-              }}
-            >
-              AWS
-            </span>
-          </div>
-        </div>
+        <RegistrationCard />
       </div>
 
       <style>{`

@@ -27,6 +27,7 @@ export function AboutAce() {
     >
       {/* Glow */}
       <div
+        aria-hidden="true"
         style={{
           position: "absolute",
           width: 600,
@@ -87,37 +88,16 @@ export function AboutAce() {
 
           <div id="join-ace" style={{ display: "flex", gap: 12, alignItems: "center" }}>
             <a
-              href="#"
-              style={{
-                display: "inline-flex", alignItems: "center", justifyContent: "center",
-                height: 50, padding: "0 32px", borderRadius: 10,
-                fontFamily: "'Manrope', sans-serif", fontSize: 14, fontWeight: 700,
-                letterSpacing: "0.05em", textDecoration: "none",
-                background: "#00A6A6", color: "#fff", transition: "background 0.2s",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.background = "#009090")}
-              onMouseLeave={(e) => (e.currentTarget.style.background = "#00A6A6")}
+              href="https://acepro.org"
+              className="btn btn-teal"
+              aria-label="Join the ACE community for free"
             >
               Join ACE — It&apos;s Free
             </a>
             <a
-              href="#"
-              style={{
-                display: "inline-flex", alignItems: "center", justifyContent: "center",
-                height: 50, padding: "0 32px", borderRadius: 10,
-                fontFamily: "'Manrope', sans-serif", fontSize: 14, fontWeight: 700,
-                letterSpacing: "0.05em", textDecoration: "none",
-                background: "transparent", color: "#fff",
-                border: "1.5px solid rgba(255,255,255,0.4)", transition: "all 0.2s",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "#fff";
-                e.currentTarget.style.background = "rgba(255,255,255,0.06)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.4)";
-                e.currentTarget.style.background = "transparent";
-              }}
+              href="https://acepro.org"
+              className="btn btn-outline-dark"
+              aria-label="Learn more about ACE"
             >
               Learn More
             </a>
